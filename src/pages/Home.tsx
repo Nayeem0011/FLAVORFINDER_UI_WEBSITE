@@ -6,6 +6,7 @@ import LoadingSpinner from "../loading/LoadingSpinner"
 import NoRecipeCard from "../nofound/NoRecipeCard"
 import { FiSearch } from "react-icons/fi"
 import { motion } from "framer-motion"
+import type { Recipe } from "../redux/favoriteSlice"
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -51,7 +52,7 @@ const Home = () => {
             setArea("")}}
             className="w-full px-4 py-2 border-2 border-orange-500 rounded-md text-orange-600 font-semibold focus:ring-2 focus:ring-orange-400 transition outline-none">
               <option value="">All Categories</option>
-              {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
+              {categories.map((cat:string) => <option key={cat} value={cat}>{cat}</option>)}
           </select>
         </motion.div>
 
@@ -65,7 +66,7 @@ const Home = () => {
             setSearch("")}}
             className="w-full px-4 py-2 border-2 border-orange-500 rounded-md text-orange-600 font-semibold focus:ring-2 focus:ring-orange-400 transition outline-none">
               <option value="">All Areas</option>
-              {areas.map((ar) => <option key={ar} value={ar}>{ar}</option>)}
+              {areas.map((ar: string) => <option key={ar} value={ar}>{ar}</option>)}
           </select>
         </motion.div>
       </div>
@@ -107,7 +108,7 @@ const Home = () => {
         recipes.length === 0 ? <NoRecipeCard/> : (
             <div className="grid sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto mb-8">
                 {
-                    recipes.map((item)=><RecipeCard item={item} key={item.idMeal}/>)
+                    recipes.map((item: Recipe)=><RecipeCard item={item} key={item.idMeal}/>)
                 }
             </div>
         )
