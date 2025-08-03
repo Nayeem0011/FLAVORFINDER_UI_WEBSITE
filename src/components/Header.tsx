@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { FaUtensils } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import RandomRecipeSection from '../pages/RandomRecipeSection'
 
 const Header = () => {
   const [showHeader, setShowHeader] = useState(true)
@@ -36,6 +37,8 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-orange-600">
           <FaUtensils className="text-orange-500" />FlavorFinder
           </Link>
+
+          <RandomRecipeSection/>
 
           {/* Navigation Links */}
           <ul className="flex flex-wrap gap-4 text-gray-800 font-medium">

@@ -33,3 +33,9 @@ export const getRecipe = async (search: string) => {
   return data.meals ? data.meals : [];
 };
 
+export const getRandomRecipe = async() =>{
+  const res = await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`);
+  const data = await res.json()
+  return data.meals[0]
+}
+
